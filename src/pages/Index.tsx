@@ -146,20 +146,47 @@ const Index = () => {
           background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
         }}
       >
-        {/* Animated Background Circles */}
+        {/* Animated Background Pattern */}
         <div className="absolute inset-0 overflow-hidden">
-          <div 
-            className="absolute w-96 h-96 bg-white/10 rounded-full blur-3xl -top-48 -left-48"
-            style={{ transform: `translateY(${scrollY * 0.5}px)` }}
-          />
-          <div 
-            className="absolute w-96 h-96 bg-white/10 rounded-full blur-3xl top-1/2 right-0"
-            style={{ transform: `translateY(${scrollY * 0.3}px)` }}
-          />
-          <div 
-            className="absolute w-64 h-64 bg-white/10 rounded-full blur-3xl bottom-0 left-1/3"
-            style={{ transform: `translateY(${scrollY * 0.4}px)` }}
-          />
+          {/* Floating Gradient Orbs */}
+          <div className="absolute w-96 h-96 bg-purple-400/20 rounded-full blur-3xl -top-20 -left-20 animate-float" />
+          <div className="absolute w-80 h-80 bg-indigo-400/20 rounded-full blur-3xl top-1/3 right-0 animate-float-delay-1" />
+          <div className="absolute w-72 h-72 bg-violet-400/20 rounded-full blur-3xl bottom-10 left-1/4 animate-float-delay-2" />
+          
+          {/* Geometric Grid Pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-0 left-0 w-full h-full" style={{
+              backgroundImage: `
+                linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+              `,
+              backgroundSize: '50px 50px'
+            }} />
+          </div>
+          
+          {/* Animated Lines */}
+          <svg className="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style={{ stopColor: 'white', stopOpacity: 0 }} />
+                <stop offset="50%" style={{ stopColor: 'white', stopOpacity: 0.5 }} />
+                <stop offset="100%" style={{ stopColor: 'white', stopOpacity: 0 }} />
+              </linearGradient>
+            </defs>
+            <line x1="0" y1="20%" x2="100%" y2="20%" stroke="url(#line-gradient)" strokeWidth="2" className="animate-pulse-slow" />
+            <line x1="0" y1="50%" x2="100%" y2="50%" stroke="url(#line-gradient)" strokeWidth="1" className="animate-pulse-slow" style={{ animationDelay: '1s' }} />
+            <line x1="0" y1="80%" x2="100%" y2="80%" stroke="url(#line-gradient)" strokeWidth="2" className="animate-pulse-slow" style={{ animationDelay: '2s' }} />
+          </svg>
+          
+          {/* Rotating Border Squares */}
+          <div className="absolute top-20 right-20 w-32 h-32 border-2 border-white/10 rounded-lg animate-rotate-slow" />
+          <div className="absolute bottom-32 left-32 w-24 h-24 border-2 border-white/10 rounded-lg animate-rotate-slow" style={{ animationDirection: 'reverse' }} />
+          
+          {/* Subtle Dots Pattern */}
+          <div className="absolute inset-0 opacity-5" style={{
+            backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+            backgroundSize: '30px 30px'
+          }} />
         </div>
 
         <div className="container mx-auto px-4 py-32 relative z-10">
