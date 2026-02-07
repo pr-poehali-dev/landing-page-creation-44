@@ -128,7 +128,10 @@ const Index = () => {
             <a href="#benefits" className="text-gray-700 hover:text-purple-600 transition">Преимущества</a>
             <a href="#packages" className="text-gray-700 hover:text-purple-600 transition">Пакеты</a>
             <a href="#contact" className="text-gray-700 hover:text-purple-600 transition">Контакты</a>
-            <Button className="bg-purple-600 hover:bg-purple-700 text-white">
+            <Button 
+              className="bg-purple-600 hover:bg-purple-700 text-white"
+              onClick={() => window.open('https://t.me/DashaChernikova8', '_blank')}
+            >
               Стать партнером
             </Button>
           </div>
@@ -173,11 +176,13 @@ const Index = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 className="bg-white text-purple-700 hover:bg-purple-50 px-8 py-6 text-lg font-semibold rounded-xl transition-all hover:scale-105 shadow-2xl"
+                onClick={() => window.open('https://t.me/DashaChernikova8', '_blank')}
               >
                 Стать партнером →
               </Button>
               <Button 
                 className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 px-8 py-6 text-lg font-semibold rounded-xl transition-all"
+                onClick={() => window.open('https://t.me/DashaChernikova8', '_blank')}
               >
                 Узнать подробнее
               </Button>
@@ -353,6 +358,7 @@ const Index = () => {
                       background: pkg.buttonGradient,
                       color: pkg.buttonColor
                     }}
+                    onClick={() => window.open('https://t.me/DashaChernikova8', '_blank')}
                   >
                     {pkg.buttonText}
                   </Button>
@@ -372,7 +378,10 @@ const Index = () => {
           <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
             Свяжитесь с нами, и мы обсудим детали сотрудничества
           </p>
-          <Button className="bg-white text-purple-700 hover:bg-purple-50 px-12 py-7 text-xl font-bold rounded-xl transition-all hover:scale-105 shadow-2xl">
+          <Button 
+            className="bg-white text-purple-700 hover:bg-purple-50 px-12 py-7 text-xl font-bold rounded-xl transition-all hover:scale-105 shadow-2xl"
+            onClick={() => window.open('https://t.me/DashaChernikova8', '_blank')}
+          >
             Связаться с нами
           </Button>
         </div>
