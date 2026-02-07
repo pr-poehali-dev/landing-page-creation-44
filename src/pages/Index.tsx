@@ -1,17 +1,13 @@
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
 
 const Index = () => {
   const packages = [
     {
-      id: "vip",
+      id: "gold",
       badge: "VIP",
       title: "Генеральный партнер",
       price: "100 000 ₽",
-      gradient: "from-yellow-400 to-yellow-600",
-      badgeColor: "bg-yellow-400 text-yellow-900",
-      buttonColor: "bg-yellow-400 hover:bg-yellow-500 text-yellow-900",
       features: [
         "20 входных билетов",
         "Ведущий говорит вставки о спонсоре (детали обсуждаем)",
@@ -23,13 +19,10 @@ const Index = () => {
       ]
     },
     {
-      id: "standard",
+      id: "silver",
       badge: "Популярный",
       title: "Пакет STANDART",
       price: "25 000 ₽",
-      gradient: "from-purple-500 to-purple-700",
-      badgeColor: "bg-purple-500 text-white",
-      buttonColor: "bg-purple-600 hover:bg-purple-700 text-white",
       features: [
         "5 входных билетов",
         "Вкладыш в промо пакет участникам",
@@ -40,13 +33,10 @@ const Index = () => {
       ]
     },
     {
-      id: "barter",
+      id: "bronze",
       badge: "Бартер",
       title: "Информационные спонсоры",
       price: "БАРТЕР",
-      gradient: "from-orange-400 to-orange-600",
-      badgeColor: "bg-orange-400 text-orange-900",
-      buttonColor: "bg-orange-500 hover:bg-orange-600 text-white",
       note: "Мы ничего не платим им, они ничего не платят нам — делают рекламу",
       features: [
         "Размещение на сайте конференции",
@@ -57,91 +47,106 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-600 via-purple-700 to-indigo-800">
-      {/* Hero Section */}
-      <div className="container mx-auto px-4 py-16 animate-fade-in">
-        <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 animate-scale-in">
-            Партнерам и спонсорам
-          </h1>
-          <p className="text-xl text-purple-100 max-w-2xl mx-auto">
-            Выберите подходящий пакет для сотрудничества
-          </p>
-        </div>
+    <div className="min-h-screen py-10 px-5" style={{
+      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+    }}>
+      <div className="max-w-[1200px] mx-auto">
+        <h1 className="text-center text-white text-4xl md:text-5xl mb-2.5 font-bold" style={{
+          textShadow: '2px 2px 4px rgba(0,0,0,0.2)'
+        }}>
+          Партнерам и спонсорам
+        </h1>
+        <p className="text-center text-white/90 text-lg mb-12">
+          Выберите подходящий пакет для сотрудничества
+        </p>
 
-        {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {packages.map((pkg, index) => (
-            <Card
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {packages.map((pkg) => (
+            <div
               key={pkg.id}
-              className="relative overflow-hidden bg-white rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-2 animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className={`package-${pkg.id} bg-white rounded-[20px] p-[35px] relative overflow-hidden transition-all duration-300 hover:-translate-y-2.5`}
+              style={{
+                boxShadow: '0 20px 60px rgba(0,0,0,0.3)'
+              }}
             >
-              {/* Top Gradient Border */}
-              <div className={`h-1.5 bg-gradient-to-r ${pkg.gradient}`} />
-              
+              {/* Top gradient border */}
+              <div 
+                className="absolute top-0 left-0 right-0 h-[5px]"
+                style={{
+                  background: pkg.id === 'gold' 
+                    ? 'linear-gradient(90deg, #ffd700, #ffaa00)'
+                    : pkg.id === 'silver'
+                    ? 'linear-gradient(90deg, #c0c0c0, #808080)'
+                    : 'linear-gradient(90deg, #cd7f32, #8b4513)'
+                }}
+              />
+
               {/* Badge */}
-              <div className="absolute top-6 right-6">
-                <span className={`${pkg.badgeColor} px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide shadow-md`}>
+              <div className="absolute top-5 right-5">
+                <span 
+                  className="px-4 py-2 rounded-[20px] text-xs font-bold uppercase tracking-wider"
+                  style={{
+                    background: pkg.id === 'gold'
+                      ? 'linear-gradient(135deg, #ffd700, #ffaa00)'
+                      : pkg.id === 'silver'
+                      ? 'linear-gradient(135deg, #c0c0c0, #808080)'
+                      : 'linear-gradient(135deg, #cd7f32, #8b4513)',
+                    color: pkg.id === 'gold' ? '#333' : 'white'
+                  }}
+                >
                   {pkg.badge}
                 </span>
               </div>
 
-              <div className="p-8">
-                {/* Title */}
-                <h2 className="text-2xl font-bold text-gray-800 mb-2 mt-4">
-                  {pkg.title}
-                </h2>
+              <h2 className="text-2xl text-gray-800 mb-2.5 font-bold mt-2">
+                {pkg.title}
+              </h2>
 
-                {/* Price */}
-                <div className={`text-4xl font-extrabold mb-6 bg-gradient-to-r ${pkg.gradient} bg-clip-text text-transparent`}>
-                  {pkg.price}
-                </div>
-
-                {/* Note for Barter */}
-                {pkg.note && (
-                  <div className="bg-orange-50 border-l-4 border-orange-400 p-4 mb-6 rounded-lg">
-                    <p className="text-sm text-gray-700">{pkg.note}</p>
-                  </div>
-                )}
-
-                {/* Features List */}
-                <ul className="space-y-4 mb-8">
-                  {pkg.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-3 text-gray-600">
-                      <Icon name="Check" className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm leading-relaxed">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA Button */}
-                <Button 
-                  className={`w-full ${pkg.buttonColor} font-semibold py-6 rounded-xl text-base transition-all duration-300 hover:scale-105 shadow-lg`}
-                >
-                  {pkg.id === "vip" && "Стать генеральным партнером"}
-                  {pkg.id === "standard" && "Стать партнером"}
-                  {pkg.id === "barter" && "Стать спонсором"}
-                </Button>
+              <div 
+                className="text-[2.5rem] font-extrabold mb-6"
+                style={{
+                  color: pkg.id === 'gold' 
+                    ? '#e6a700'
+                    : pkg.id === 'silver'
+                    ? '#666'
+                    : '#8b4513'
+                }}
+              >
+                {pkg.price}
               </div>
-            </Card>
-          ))}
-        </div>
 
-        {/* Bottom CTA Section */}
-        <div className="text-center mt-20 animate-fade-in" style={{ animationDelay: "0.4s" }}>
-          <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 max-w-3xl mx-auto border border-white/20">
-            <Icon name="Mail" className="w-12 h-12 text-white mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-white mb-3">
-              Остались вопросы?
-            </h3>
-            <p className="text-purple-100 mb-6">
-              Свяжитесь с нами для обсуждения индивидуальных условий партнерства
-            </p>
-            <Button className="bg-white text-purple-700 hover:bg-purple-50 font-semibold px-8 py-6 rounded-xl transition-all hover:scale-105">
-              Связаться с организаторами
-            </Button>
-          </div>
+              {pkg.note && (
+                <div className="bg-orange-50 p-3 rounded-lg mb-4 text-sm text-gray-700 border-l-[3px] border-orange-400">
+                  {pkg.note}
+                </div>
+              )}
+
+              <ul className="list-none mb-6">
+                {pkg.features.map((feature, i) => (
+                  <li key={i} className="py-2.5 border-b border-gray-200 text-gray-600 flex items-start last:border-0">
+                    <Icon name="Check" className="text-green-500 font-bold mr-2.5 text-lg mt-0.5 flex-shrink-0" size={18} />
+                    <span className="text-sm">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <Button 
+                className="w-full py-3.5 mt-5 border-0 rounded-[10px] text-sm font-semibold cursor-pointer transition-all duration-300 uppercase hover:scale-105"
+                style={{
+                  background: pkg.id === 'gold'
+                    ? '#ffd700'
+                    : pkg.id === 'silver'
+                    ? '#667eea'
+                    : '#cd7f32',
+                  color: pkg.id === 'silver' ? 'white' : pkg.id === 'bronze' ? 'white' : '#333'
+                }}
+              >
+                {pkg.id === 'gold' && 'Стать генеральным партнером'}
+                {pkg.id === 'silver' && 'Стать партнером'}
+                {pkg.id === 'bronze' && 'Стать спонсором'}
+              </Button>
+            </div>
+          ))}
         </div>
       </div>
     </div>
