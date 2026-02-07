@@ -109,10 +109,9 @@ const Index = () => {
   ];
 
   const stats = [
-    { number: "500+", label: "Участников на каждом мероприятии" },
-    { number: "50+", label: "Спикеров и экспертов" },
-    { number: "10+", label: "Лет успешной работы" },
-    { number: "95%", label: "Довольных партнеров" }
+    { number: "150+", label: "Предпринимателей на мероприятии" },
+    { number: "6+", label: "Спикеров" },
+    { number: "18 апреля", label: "2026 года" }
   ];
 
   return (
@@ -121,7 +120,7 @@ const Index = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="text-2xl font-bold">
-            Конференция <span className="text-purple-600">2024</span>
+            Конференция <span className="text-purple-600">2026</span>
           </div>
           <div className="hidden md:flex gap-8 items-center">
             <a href="#main" className="text-gray-700 hover:text-purple-600 transition">Главная</a>
@@ -186,8 +185,8 @@ const Index = () => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto mt-20">
-            {stats.slice(0, 3).map((stat, i) => (
+          <div className="grid grid-cols-3 gap-8 max-w-4xl mx-auto mt-20">
+            {stats.map((stat, i) => (
               <div key={i} className="text-center animate-fade-in" style={{ animationDelay: `${i * 0.1}s` }}>
                 <div className="text-4xl md:text-5xl font-bold text-white mb-2">{stat.number}</div>
                 <div className="text-white/80 text-sm md:text-base">{stat.label}</div>
@@ -214,18 +213,18 @@ const Index = () => {
               <div className="grid grid-cols-3 gap-6">
                 <div className="text-center p-4 bg-white rounded-xl shadow-sm">
                   <div className="text-purple-600 text-3xl mb-2">👥</div>
-                  <div className="font-bold text-2xl text-gray-800">500+</div>
-                  <div className="text-sm text-gray-600">Участников</div>
+                  <div className="font-bold text-2xl text-gray-800">150+</div>
+                  <div className="text-sm text-gray-600">Предпринимателей</div>
                 </div>
                 <div className="text-center p-4 bg-white rounded-xl shadow-sm">
                   <div className="text-purple-600 text-3xl mb-2">🎤</div>
-                  <div className="font-bold text-2xl text-gray-800">50+</div>
+                  <div className="font-bold text-2xl text-gray-800">6+</div>
                   <div className="text-sm text-gray-600">Спикеров</div>
                 </div>
                 <div className="text-center p-4 bg-white rounded-xl shadow-sm">
-                  <div className="text-purple-600 text-3xl mb-2">📅</div>
-                  <div className="font-bold text-2xl text-gray-800">10+</div>
-                  <div className="text-sm text-gray-600">Лет опыта</div>
+                  <div className="text-purple-600 text-3xl mb-2">🏢</div>
+                  <div className="font-bold text-lg text-gray-800">Седанка-Парк</div>
+                  <div className="text-sm text-gray-600">Место проведения</div>
                 </div>
               </div>
             </div>
@@ -239,8 +238,8 @@ const Index = () => {
                 <div className="absolute top-6 right-6 bg-purple-600 text-white px-6 py-3 rounded-full shadow-lg flex items-center gap-2">
                   <span className="text-2xl">📅</span>
                   <div>
-                    <div className="text-xs">Следующее</div>
-                    <div className="font-bold">15 марта 2024</div>
+                    <div className="text-xs">Мероприятие</div>
+                    <div className="font-bold">18 апреля 2026</div>
                   </div>
                 </div>
               </div>
@@ -382,7 +381,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-4 text-center">
-          <div className="text-2xl font-bold mb-4">Конференция 2024</div>
+          <div className="text-2xl font-bold mb-4">Конференция 2026</div>
           <p className="text-gray-400 mb-6">Создаем возможности для вашего бизнеса</p>
           <div className="flex justify-center gap-8 text-sm text-gray-400">
             <a href="#" className="hover:text-white transition">Главная</a>
