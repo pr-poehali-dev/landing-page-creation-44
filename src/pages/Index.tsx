@@ -364,36 +364,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stats Section Dark */}
-      <section className="py-24 relative overflow-hidden" style={{ background: '#1a1d2e' }}>
-        <div className="absolute inset-0">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-purple-400/30 rounded-full animate-pulse"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 2}s`
-              }}
-            />
-          ))}
-        </div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-            {stats.map((stat, i) => (
-              <div key={i} className="text-center">
-                <div className="text-5xl md:text-6xl font-bold text-white mb-3">
-                  <span className="text-purple-400">{stat.number.replace(/[^0-9%+]/g, '')}</span>
-                  <span className="text-purple-400">{stat.number.match(/[%+]/)?.[0] || ''}</span>
-                </div>
-                <div className="text-gray-300 text-sm md:text-base">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section id="contact" className="py-32 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}>
         <div className="container mx-auto px-4 text-center relative z-10">
